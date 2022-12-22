@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import { BottomSheetPicker } from 'react-native-bottom-sheet-picker';
+import BottomSheetPicker from 'react-native-bottom-sheet-picker';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
