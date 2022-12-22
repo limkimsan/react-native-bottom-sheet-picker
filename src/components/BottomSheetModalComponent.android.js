@@ -6,7 +6,7 @@ import {
   BottomSheetScrollView,
 } from '@gorhom/bottom-sheet';
 
-const BottomSheetModalComponent = (props: any, ref: any) => {
+const BottomSheetModalComponent = (props, ref) => {
   const renderBackdrop = useCallback( props => (
     <BottomSheetBackdrop
       {...props}

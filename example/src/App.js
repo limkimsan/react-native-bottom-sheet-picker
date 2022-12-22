@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import BottomSheetPicker from 'react-native-bottom-sheet-picker';
+import {BottomSheetPicker} from 'react-native-bottom-sheet-picker';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
@@ -26,7 +26,7 @@ export default function App() {
            </React.Fragment>
   }
 
-  const customListItem = (item: any) => {
+  const customListItem = (item) => {
     return <Text style={{color: 'green'}}>{item.label} = {item.value}</Text>
   }
 
@@ -40,9 +40,9 @@ export default function App() {
             bottomSheetTitle="Select your age"
             items={pickerItems}
             selectedItem={selectedAge}
-            onSelectItem={(item: any) => setSelectedAge(item)}
+            onSelectItem={(item) => setSelectedAge(item)}
             customTitle={customTitle()}
-            customListItem={(item: any) => customListItem(item)}
+            customListItem={(item) => customListItem(item)}
             // itemTextStyle={{fontWeight: 'bold'}}
           />
         </View>

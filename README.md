@@ -11,7 +11,7 @@ npm install react-native-bottom-sheet-picker
 ## Usage
 
 ```js
-import BottomSheetPicker from 'react-native-bottom-sheet-picker';
+import {BottomSheetPicker} from 'react-native-bottom-sheet-picker';
 
 // ...
 <BottomSheetPicker
