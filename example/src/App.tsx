@@ -1,12 +1,10 @@
 import * as React from 'react';
-
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { BottomSheetPicker } from 'react-native-bottom-sheet-picker';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 
 export default function App() {
-  // const [result, setResult] = React.useState<number | undefined>();
   const [selectedAge, setSelectedAge] = React.useState(null);
   const pickerItems = [
     {label: '13 years old', value: 13},
@@ -21,15 +19,31 @@ export default function App() {
     {label: '22 years old', value: 22},
   ];
 
+  const customTitle = () => {
+    return <React.Fragment>
+            <Text style={{fontSize: 18, marginBottom: 16, paddingHorizontal: 16, fontWeight: 'bold'}}>អាយុរបស់អ្នក</Text>
+            <Text>==================================================</Text>
+           </React.Fragment>
+  }
+
+  const customListItem = (item: any) => {
+    return <Text style={{color: 'green'}}>{item.label} = {item.value}</Text>
+  }
+
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <BottomSheetModalProvider>
         <View style={styles.container}>
           <BottomSheetPicker
-            label="Select your age"
+            title="Your age"
+            placeholder="Select your age"
+            bottomSheetTitle="Select your age"
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item: any) => setSelectedAge(item)}
+            customTitle={customTitle()}
+            customListItem={(item: any) => customListItem(item)}
+            // itemTextStyle={{fontWeight: 'bold'}}
           />
         </View>
       </BottomSheetModalProvider>
@@ -42,7 +56,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#D3D3D3',
     flexGrow: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    paddingTop: 56
   },
   box: {
     width: 60,

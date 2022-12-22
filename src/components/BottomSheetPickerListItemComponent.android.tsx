@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, TouchableOpacity, Text } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 const BottomSheetPickerListItemComponent = (props: any) => {
   const itemColor = (item: any, defaultColor: string) => {
@@ -12,12 +12,12 @@ const BottomSheetPickerListItemComponent = (props: any) => {
         <React.Fragment key={index}>
           <TouchableOpacity
             onPress={() => props.onSelectItem(item)}
-            style={{flexDirection: 'row', height: 56, alignItems: 'center'}}
+            style={[styles.container, props.listItemStyle]}
           >
             { props.customListItem ? props.customListItem(item)
               :
               <View style={{flex: 1}}>
-                <Text style={{ color: itemColor(item, 'black'), fontSize: 16 }}>{ item.label }</Text>
+                <Text style={[{ color: itemColor(item, 'black'), fontSize: 16 }, props.itemTextStyle]}>{ item.label }</Text>
               </View>
             }
           </TouchableOpacity>
@@ -29,5 +29,13 @@ const BottomSheetPickerListItemComponent = (props: any) => {
 
   return renderListItem();
 }
+
+const styles = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+    flexDirection: 'row',
+    height: 56,
+  }
+});
 
 export default BottomSheetPickerListItemComponent;
