@@ -11,20 +11,34 @@ npm install react-native-bottom-sheet-picker
 ## Usage
 
 ```js
-import { multiply } from 'react-native-bottom-sheet-picker';
+import BottomSheetPicker from 'react-native-bottom-sheet-picker';
 
 // ...
-
-const result = await multiply(3, 7);
+<BottomSheetPicker
+  title="Title of the picker"
+  placeholder="Placeholder"
+  bottomSheetTitle="Title on the bottom sheet"
+  items={[label: '', value: '']}
+  selectedItem={}
+  onSelectItem={(item) => {}}
+  containerStyle={{}}
+  pickerStyle={{}}
+  labelStyle={{}}
+  listItemStyle={{}}
+  itemTextStyle={{}}
+  customTitle={component} (optional)
+  customListItem={component} (optional)
+  customPickerContent={component} (optional)
+/>
 ```
 
 ## Contributing
 
 See the [contributing guide](CONTRIBUTING.md) to learn how to contribute to the repository and the development workflow.
 
-## License
+<!-- ## License
 
-MIT
+MIT -->
 
 ---
 
