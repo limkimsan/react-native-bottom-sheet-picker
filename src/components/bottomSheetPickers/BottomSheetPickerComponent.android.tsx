@@ -9,13 +9,13 @@ const BottomSheetPickerComponent = (props: any) => {
   let pickerModalRef = React.createRef();
   const getLabel = () => {
     if (!props.items)
-      return props.label || '';
+      return props.placeholder || '';
 
     const selectedItem = props.items.filter((item: any) => item.value === props.selectedItem);
-    return selectedItem.length > 0 ? selectedItem[0].label : props.label;
+    return selectedItem.length > 0 ? selectedItem[0].label : props.placeholder;
   }
 
-  const onSelectItem = (item) => {
+  const onSelectItem = (item: any) => {
     props.onSelectItem(item);
     pickerModalRef.current?.dismiss();
   }
@@ -24,26 +24,30 @@ const BottomSheetPickerComponent = (props: any) => {
     if (props.disabled)
       return
 
-    pickerRef.current?.setBodyContent(
-      <BottomSheetPickerListComponent
-        title="Select your age"
-        items={props.items}
-        onSelectItem={onSelectItem}
-      />
-    );
+    const content = !!props.customPickerContent ? props.customPickerContent
+                    : <BottomSheetPickerListComponent
+                        title={props.bottomSheetTitle}
+                        items={props.items}
+                        customTitle={props.customTitle}
+                        customListItem={props.customListItem}
+                        listItemStyle={props.listItemStyle}
+                        itemTextStyle={props.itemTextStyle}
+                        onSelectItem={onSelectItem}
+                      />
 
+    pickerRef.current?.setBodyContent(content);
     pickerModalRef.current?.present();
   }
 
   return (
-    <View style={{width: '90%'}}>
-      <Text style={styles.titleLabel}>Picker title</Text>
+    <View style={[{width: '90%'}, props.containerStyle]}>
+      <Text style={[styles.titleLabel, props.titleStyle]}>{props.title}</Text>
 
-      <View style={styles.mainContainer}>
+      <View style={[styles.mainContainer, props.pickerStyle]}>
         <TouchableOpacity onPress={() => showPicker()} style={{height: '100%'}}>
           <View style={styles.textContainer}>
             <View style={{flex: 1}}>
-              <Text style={{fontSize: 16}}>{ getLabel() }</Text>
+              <Text style={[{fontSize: 16}, props.labelStyle]}>{ getLabel() }</Text>
             </View>
           </View>
         </TouchableOpacity>
@@ -66,10 +70,29 @@ const styles = StyleSheet.create({
     height: 56,
   },
   textContainer: {
-    flexDirection: 'row',
     alignItems: 'center',
+    flexDirection: 'row',
     height: '100%',
+    paddingHorizontal: 16,
   },
 });
 
 export default BottomSheetPickerComponent;
+
+// How to use the component
+{/* <BottomSheetPicker
+  title="Your age"
+  placeholder="Select your age"
+  bottomSheetTitle="Select you age"
+  items={pickerItems}
+  selectedItem={selectedAge}
+  onSelectItem={(item: any) => setSelectedAge(item)}
+  containerStyle={{}}
+  pickerStyle={{}}
+  labelStyle={{}}
+  listItemStyle={{}}
+  itemTextStyle={{}}
+  customTitle={component} (optional)
+  customListItem={component} (optional)
+  customPickerContent={component} (optional)
+/> */}
