@@ -1,8 +1,8 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
-import FormBottomSheetModalComponent from '../FormBottomSheetModalComponent';
-import BottomSheetPickerListComponent from '../BottomSheetPickerListComponent';
+import FormBottomSheetModalComponent from './FormBottomSheetModalComponent';
+import BottomSheetPickerListComponent from './BottomSheetPickerListComponent';
 
 const BottomSheetPickerComponent = (props) => {
   let pickerRef = React.createRef();
