@@ -2,7 +2,7 @@ import React from 'react';
 import BottomSheetModalComponent from './BottomSheetModalComponent';
 
 class FormBottomSheetModalComponent extends React.Component {
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     this.state = {
       bodyContent: null,
@@ -10,11 +10,11 @@ class FormBottomSheetModalComponent extends React.Component {
     }
   }
 
-  setBodyContent(bodyContent: any) {
+  setBodyContent(bodyContent) {
     this.setState({ bodyContent });
   }
 
-  setSnapPoints(snapPoints: any) {
+  setSnapPoints(snapPoints) {
     this.setState({ snapPoints });
   }
 
@@ -29,7 +29,7 @@ class FormBottomSheetModalComponent extends React.Component {
         content={this.state.bodyContent}
         snapPoints={this.state.snapPoints}
         onDismiss={() => this.onDismissModal()}
-        onChange={(index: any) => !!this.props.onChange && this.props.onChange(index)}
+        onChange={(index) => !!this.props.onChange && this.props.onChange(index)}
       />
     )
   }

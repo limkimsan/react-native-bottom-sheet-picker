@@ -4,18 +4,18 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import FormBottomSheetModalComponent from '../FormBottomSheetModalComponent';
 import BottomSheetPickerListComponent from '../BottomSheetPickerListComponent';
 
-const BottomSheetPickerComponent = (props: any) => {
+const BottomSheetPickerComponent = (props) => {
   let pickerRef = React.createRef();
   let pickerModalRef = React.createRef();
   const getLabel = () => {
     if (!props.items)
       return props.placeholder || '';
 
-    const selectedItem = props.items.filter((item: any) => item.value === props.selectedItem);
+    const selectedItem = props.items.filter((item) => item.value === props.selectedItem);
     return selectedItem.length > 0 ? selectedItem[0].label : props.placeholder;
   }
 
-  const onSelectItem = (item: any) => {
+  const onSelectItem = (item) => {
     props.onSelectItem(item);
     pickerModalRef.current?.dismiss();
   }
@@ -86,7 +86,7 @@ export default BottomSheetPickerComponent;
   bottomSheetTitle="Select you age"
   items={pickerItems}
   selectedItem={selectedAge}
-  onSelectItem={(item: any) => setSelectedAge(item)}
+  onSelectItem={(item) => setSelectedAge(item)}
   containerStyle={{}}
   pickerStyle={{}}
   labelStyle={{}}

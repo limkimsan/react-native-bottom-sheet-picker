@@ -5,7 +5,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import DashedLineComponent from './DashedLineComponent';
 import BottomSheetPickerListItemComponent from './BottomSheetPickerListItemComponent';
 
-const BottomSheetPickerListComponent = (props: any) => {
+const BottomSheetPickerListComponent = (props) => {
   const [selectedItem, setSelectedItem] = useState(props.selectedItem);
 
   const renderTitle = () => {
@@ -15,7 +15,7 @@ const BottomSheetPickerListComponent = (props: any) => {
            </React.Fragment>
   }
 
-  const onSelectItem = (item: any) => {
+  const onSelectItem = (item) => {
     if (item.disabled)
       return;
 
@@ -30,7 +30,7 @@ const BottomSheetPickerListComponent = (props: any) => {
           <BottomSheetPickerListItemComponent
             items={props.items}
             selectedItem={selectedItem}
-            onSelectItem={(item: any) => onSelectItem(item)}
+            onSelectItem={(item) => onSelectItem(item)}
             showConfirmDelete={props.showConfirmDelete}
             isDeletable={props.isDeletable}
             defaultSelectedItem={props.selectedItem}

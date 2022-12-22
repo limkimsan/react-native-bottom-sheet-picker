@@ -1,13 +1,13 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const BottomSheetPickerListItemComponent = (props: any) => {
-  const itemColor = (item: any, defaultColor: string) => {
+const BottomSheetPickerListItemComponent = (props) => {
+  const itemColor = (item, defaultColor) => {
     return (item.disabled && item.value != props.selectedItem) ? '#b5b5b5' : defaultColor;
   }
 
   const renderListItem = () => {
-    return props.items.map((item: any, index: number) => {
+    return props.items.map((item, index) => {
       return (
         <React.Fragment key={index}>
           <TouchableOpacity
