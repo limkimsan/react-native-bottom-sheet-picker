@@ -41,9 +41,8 @@ export default function App() {
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
-            customTitle={customTitle()}
-            customListItem={(item) => customListItem(item)}
-            // itemTextStyle={{fontWeight: 'bold'}}
+            // customTitle={customTitle()}
+            // customListItem={(item) => customListItem(item)}
           />
         </View>
       </BottomSheetModalProvider>

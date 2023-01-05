@@ -32,6 +32,7 @@ const BottomSheetPickerComponent = (props) => {
                         customListItem={props.customListItem}
                         listItemStyle={props.listItemStyle}
                         itemTextStyle={props.itemTextStyle}
+                        pickerContentHeight={props.pickerContentHeight}
                         onSelectItem={onSelectItem}
                       />
 
@@ -39,9 +40,14 @@ const BottomSheetPickerComponent = (props) => {
     pickerModalRef.current?.present();
   }
 
+  const onDismissModal = () => {
+    !!props.onDimiss && props.onDimiss();
+    pickerRef.current?.setBodyContent(null);
+  }
+
   return (
     <View style={[{width: '90%'}, props.containerStyle]}>
-      <Text style={[styles.titleLabel, props.titleStyle]}>{props.title}</Text>
+      { !!props.title && <Text style={[styles.titleLabel, props.titleStyle]}>{props.title}</Text> }
 
       <View style={[styles.mainContainer, props.pickerStyle]}>
         <TouchableOpacity onPress={() => showPicker()} style={{height: '100%'}}>
@@ -53,7 +59,7 @@ const BottomSheetPickerComponent = (props) => {
         </TouchableOpacity>
       </View>
 
-      <FormBottomSheetModalComponent ref={pickerRef} formModalRef={pickerModalRef} snapPoints={['60%']} onDismissModal={() => pickerRef.current?.setBodyContent(null)} />
+      <FormBottomSheetModalComponent ref={pickerRef} formModalRef={pickerModalRef} snapPoints={props.snapPoints || ['60%']} onDismissModal={() => onDismissModal()} />
     </View>
   )
 }
@@ -81,18 +87,21 @@ export default BottomSheetPickerComponent;
 
 // How to use the component
 {/* <BottomSheetPicker
-  title="Your age"
-  placeholder="Select your age"
-  bottomSheetTitle="Select you age"
+  title="Your age"   // title on top of the picker box
+  placeholder="Select your age"   // placeholder inside the picker box
+  bottomSheetTitle="Select you age"   // title on the bottom sheet
   items={pickerItems}
   selectedItem={selectedAge}
+  titleStyle={{}} (optional)   // style the title of the picker
+  snapPoints={default = ['60%']} (optional)   // snapPoint of the bottom sheet
+  pickerContentHeight={default = 425} (optional)   // height of the content on the bottom sheet
   onSelectItem={(item) => setSelectedAge(item)}
-  containerStyle={{}}
-  pickerStyle={{}}
-  labelStyle={{}}
-  listItemStyle={{}}
-  itemTextStyle={{}}
-  customTitle={component} (optional)
-  customListItem={component} (optional)
-  customPickerContent={component} (optional)
+  containerStyle={{}} (optional)   // style of the wrapper
+  pickerStyle={{}} (optional)   // style of the picker box container
+  labelStyle={{}} (optional)   // style of the label of the picker box
+  listItemStyle={{}} (optional)   // style of the list item on bottom sheet
+  itemTextStyle={{}} (optional)   // style of the label of list item on bottom sheet
+  customTitle={component} (optional)   // custom component for the bottom sheet title
+  customListItem={component} (optional)   // custom component for the bottom sheet list item
+  customPickerContent={component} (optional)   // custom component for the whole item on the bottom sheet
 /> */}
