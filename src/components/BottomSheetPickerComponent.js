@@ -19,6 +19,7 @@ const BottomSheetPickerComponent = (props) => {
     if (props.disabled)
       return
 
+    !!props.onBottomSheetShow && props.onBottomSheetShow();
     const content = !!props.customPickerContent ? props.customPickerContent
                     : <BottomSheetPickerListComponent
                         title={props.bottomSheetTitle}
@@ -36,7 +37,7 @@ const BottomSheetPickerComponent = (props) => {
   }
 
   const onDismissModal = () => {
-    !!props.onDimiss && props.onDimiss();
+    !!props.onDismiss && props.onDismiss();
     pickerRef.current?.setBodyContent(null);
   }
 
@@ -91,6 +92,8 @@ export default BottomSheetPickerComponent;
   snapPoints={default = ['60%']} (optional)   // snapPoint of the bottom sheet
   pickerContentHeight={default = 425} (optional)   // height of the content on the bottom sheet
   onSelectItem={(item) => setSelectedAge(item)}
+  onBottomSheetShow={() => {}} (optional)   // event on bottom sheet show
+  onDismiss={() => {}} (optional)   // event on bottom sheet close
   containerStyle={{}} (optional)   // style of the wrapper
   pickerStyle={{}} (optional)   // style of the picker box container
   placeholderStyle={{}} (optional)   // style of the placeholder label of the picker box
