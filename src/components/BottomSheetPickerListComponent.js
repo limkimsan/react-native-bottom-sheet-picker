@@ -10,7 +10,7 @@ const BottomSheetPickerListComponent = (props) => {
 
   const renderTitle = () => {
     return <React.Fragment>
-              <Text style={{fontSize: 18, marginBottom: 16, paddingHorizontal: 16, fontWeight: 'bold'}}>{props.title}</Text>
+              <Text style={{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold'}}>{props.title}</Text>
               <DashedLineComponent/>
            </React.Fragment>
   }
@@ -25,7 +25,7 @@ const BottomSheetPickerListComponent = (props) => {
 
   const renderList = () => {
     return (
-      <ScrollView contentContainerStyle={[{flexGrow: 1, padding: 16, paddingTop: 10, paddingBottom: 20}, props.scrollViewStyle]}>
+      <ScrollView contentContainerStyle={[{flexGrow: 1, padding: 16, paddingTop: 0, paddingBottom: 20}, props.scrollViewStyle]}>
         <Pressable>
           <BottomSheetPickerListItemComponent
             items={props.items}
@@ -45,7 +45,7 @@ const BottomSheetPickerListComponent = (props) => {
 
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
-      <View style={{backgroundColor: 'white', height: 425}}>
+      <View style={{backgroundColor: 'white', height: props.pickerContentHeight || 425}}>
         { !!props.customTitle ? props.customTitle : renderTitle() }
         { renderList() }
       </View>

@@ -1,6 +1,6 @@
 {
   "name": "react-native-bottom-sheet-picker",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "test",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -79,11 +79,12 @@
     "@types/react": "17.0.21"
   },
   "peerDependencies": {
-    "@gorhom/bottom-sheet": "^4.4.5",
+    "@gorhom/bottom-sheet": ">=4.4.5",
     "react": "*",
     "react-native": "*",
-    "react-native-gesture-handler": "^2.6.0",
-    "react-native-reanimated": "^2.13.0"
+    "react-native-gesture-handler": ">=2.6.0",
+    "react-native-reanimated": ">=2.13.0",
+    "react-native-vector-icons": ">=9.2.0"
   },
   "engines": {
     "node": ">= 16.0.0"
@@ -158,6 +159,7 @@
     ]
   },
   "dependencies": {
-    "expo": "^47.0.9"
+    "expo": "^47.0.9",
+    "react-native-vector-icons": "^9.2.0"
   }
 }

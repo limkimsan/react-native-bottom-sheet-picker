@@ -3,6 +3,7 @@ import { StyleSheet, View, Text } from 'react-native';
 import {BottomSheetPicker} from 'react-native-bottom-sheet-picker';
 import {GestureHandlerRootView} from 'react-native-gesture-handler';
 import {BottomSheetModalProvider} from '@gorhom/bottom-sheet';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export default function App() {
   const [selectedAge, setSelectedAge] = React.useState(null);
@@ -33,6 +34,7 @@ export default function App() {
   return (
     <GestureHandlerRootView style={{flex: 1}}>
       <BottomSheetModalProvider>
+        <FeatherIcon name="search" size={20} color='black' style={{marginTop: 20, display: 'none'}} />
         <View style={styles.container}>
           <BottomSheetPicker
             title="Your age"
@@ -41,9 +43,8 @@ export default function App() {
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
-            customTitle={customTitle()}
-            customListItem={(item) => customListItem(item)}
-            // itemTextStyle={{fontWeight: 'bold'}}
+            // customTitle={customTitle()}
+            // customListItem={(item) => customListItem(item)}
           />
         </View>
       </BottomSheetModalProvider>
