@@ -44,7 +44,7 @@ export default function App() {
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
-            // customTitle={customTitle()}
+            // customBottomSheetTitle={customTitle()}
             // customListItem={(item) => customListItem(item)}
           />
         </View>
