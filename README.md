@@ -1,4 +1,7 @@
 # react-native-bottom-sheet-picker
+<span><img src="https://user-images.githubusercontent.com/18114944/210942114-e2ed3f10-6dc7-46b9-b061-1fb27a282864.png" width="250" height="500" /></span>
+<span><img src="https://user-images.githubusercontent.com/18114944/210942121-0357bd06-deff-4730-a9db-e6099f97d018.png" width="250" height="500" /></span>
+
 
 React native bottom sheet picker is a picker component that uses the bottom sheet to show the list item instead of using the dropdown.
 
