@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import {LIST_ITEM_FONT_SIZE} from '../constants/font_size_constant';
 
 const BottomSheetPickerListItemComponent = (props) => {
   const itemColor = (item, defaultColor) => {
@@ -17,7 +18,7 @@ const BottomSheetPickerListItemComponent = (props) => {
             { props.customListItem ? props.customListItem(item)
               :
               <View style={{flex: 1}}>
-                <Text style={[{ color: itemColor(item, 'black'), fontSize: 16 }, props.itemTextStyle]}>{ item.label }</Text>
+                <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemTextStyle]}>{ item.label }</Text>
               </View>
             }
           </TouchableOpacity>

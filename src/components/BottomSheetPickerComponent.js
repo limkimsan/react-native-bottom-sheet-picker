@@ -4,6 +4,7 @@ import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import BottomSheetPickerBoxComponent from './BottomSheetPickerBoxComponent';
 import FormBottomSheetModalComponent from './FormBottomSheetModalComponent';
 import BottomSheetPickerListComponent from './BottomSheetPickerListComponent';
+import {TITLE_FONT_SIZE} from '../constants/font_size_constant';
 
 const BottomSheetPickerComponent = (props) => {
   let pickerRef = React.createRef();
@@ -50,7 +51,9 @@ const BottomSheetPickerComponent = (props) => {
                 items={props.items}
                 selectedItem={props.selectedItem}
                 placeholder={props.placeholder}
-                labelStyle={props.labelStyle}
+                placeholderStyle={props.placeholderStyle}
+                primaryColor={props.primaryColor}
+                customIcon={props.customIcon}
               />
           }
         </TouchableOpacity>
@@ -64,7 +67,7 @@ const BottomSheetPickerComponent = (props) => {
 const styles = StyleSheet.create({
   titleLabel: {
     color: 'black',
-    fontSize: 16,
+    fontSize: TITLE_FONT_SIZE,
   },
   mainContainer: {
     backgroundColor: 'white',
@@ -81,6 +84,7 @@ export default BottomSheetPickerComponent;
   title="Your age"   // title on top of the picker box
   placeholder="Select your age"   // placeholder inside the picker box
   bottomSheetTitle="Select you age"   // title on the bottom sheet
+  primaryColor={default = 'black'} (optional)
   items={pickerItems}
   selectedItem={selectedAge}
   titleStyle={{}} (optional)   // style the title of the picker
@@ -89,11 +93,12 @@ export default BottomSheetPickerComponent;
   onSelectItem={(item) => setSelectedAge(item)}
   containerStyle={{}} (optional)   // style of the wrapper
   pickerStyle={{}} (optional)   // style of the picker box container
-  labelStyle={{}} (optional)   // style of the label of the picker box
+  placeholderStyle={{}} (optional)   // style of the placeholder label of the picker box
   listItemStyle={{}} (optional)   // style of the list item on bottom sheet
   itemTextStyle={{}} (optional)   // style of the label of list item on bottom sheet
   customPicker={{}} (optional)   // custom component for the picker box
   customTitle={component} (optional)   // custom component for the bottom sheet title
+  customIcon={component} (optional)   // custom component for the icon of the picker box
   customListItem={component} (optional)   // custom component for the bottom sheet list item
   customPickerContent={component} (optional)   // custom component for the whole item on the bottom sheet
 /> */}
