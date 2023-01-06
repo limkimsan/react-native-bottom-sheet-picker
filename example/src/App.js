@@ -40,10 +40,11 @@ export default function App() {
             title="Your age"
             placeholder="Select your age"
             bottomSheetTitle="Select your age"
+            primaryColor="#1b91f7"
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
-            // customTitle={customTitle()}
+            // customBottomSheetTitle={customTitle()}
             // customListItem={(item) => customListItem(item)}
           />
         </View>

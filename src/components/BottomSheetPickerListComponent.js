@@ -46,7 +46,7 @@ const BottomSheetPickerListComponent = (props) => {
   return (
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={{backgroundColor: 'white', height: props.pickerContentHeight || 425}}>
-        { !!props.customTitle ? props.customTitle : renderTitle() }
+        { !!props.customBottomSheetTitle ? props.customBottomSheetTitle : renderTitle() }
         { renderList() }
       </View>
     </TouchableWithoutFeedback>
