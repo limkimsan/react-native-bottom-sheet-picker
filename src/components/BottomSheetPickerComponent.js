@@ -54,7 +54,14 @@ const BottomSheetPickerComponent = (props) => {
                 placeholder={props.placeholder}
                 placeholderStyle={props.placeholderStyle}
                 primaryColor={props.primaryColor}
+                secondaryColor={props.secondaryColor}
                 customIcon={props.customIcon}
+
+                pickerUuid={props.pickerUuid}
+                placeholderAudio={props.placeholderAudio}
+                playingUuid={props.playingUuid}
+                updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
+                placeholderAudioAccessibilityLabel={props.placeholderAudioAccessibilityLabel}
               />
           }
         </TouchableOpacity>
@@ -86,6 +93,7 @@ export default BottomSheetPickerComponent;
   placeholder="Select your age"   // placeholder inside the picker box
   bottomSheetTitle="Select you age"   // title on the bottom sheet
   primaryColor={default = 'black'} (optional)
+  secondaryColor={deafult = '#b5b5b5'} (optional)
   items={pickerItems}
   selectedItem={selectedAge}
   snapPoints={default = ['60%']} (optional)   // snapPoint of the bottom sheet
@@ -104,4 +112,9 @@ export default BottomSheetPickerComponent;
   onSelectItem={(item) => setSelectedAge(item)}
   onBottomSheetShow={() => {}} (optional)   // event on bottom sheet show
   onDismiss={() => {}} (optional)   // event on bottom sheet close
+  pickerUuid=''
+  placeholderAudio={audio}
+  playingUuid=''
+  updatePlayingUuid={(uuid) => function}
+  placeholderAudioAccessibilityLabel=''
 /> */}

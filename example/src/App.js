@@ -7,6 +7,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 
 export default function App() {
   const [selectedAge, setSelectedAge] = React.useState(null);
+  const [playingUuid, setPlayingUuid] = React.useState(null);
   const pickerItems = [
     {label: '13 years old', value: 13},
     {label: '14 years old', value: 14},
@@ -41,11 +42,18 @@ export default function App() {
             placeholder="Select your age"
             bottomSheetTitle="Select your age"
             primaryColor="#1b91f7"
+            secondaryColor="#fa60ad"
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
             // customBottomSheetTitle={customTitle()}
             // customListItem={(item) => customListItem(item)}
+
+            pickerUuid='age-picker'
+            placeholderAudio={require("../assets/sample.mp3")}
+            playingUuid={playingUuid}
+            updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
+            placeholderAudioAccessibilityLabel="Age picker"
           />
         </View>
       </BottomSheetModalProvider>
