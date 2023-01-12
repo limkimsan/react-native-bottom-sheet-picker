@@ -29,7 +29,12 @@ const BottomSheetPickerComponent = (props) => {
                         listItemStyle={props.listItemStyle}
                         itemTextStyle={props.itemTextStyle}
                         pickerContentHeight={props.pickerContentHeight}
+                        primaryColor={props.primaryColor}
+                        secondaryColor={props.secondaryColor}
                         onSelectItem={onSelectItem}
+                        hideAudio={props.hideAudio}
+                        playingUuid={props.playingUuid}
+                        updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
                       />
 
     pickerRef.current?.setBodyContent(content);
@@ -42,7 +47,7 @@ const BottomSheetPickerComponent = (props) => {
   }
 
   return (
-    <View style={[{width: '90%'}, props.containerStyle]}>
+    <View style={[{width: '100%'}, props.containerStyle]}>
       { !!props.title && <Text style={[styles.titleLabel, props.titleStyle]}>{props.title}</Text> }
 
       <View style={[styles.mainContainer, props.pickerStyle]}>
@@ -56,12 +61,10 @@ const BottomSheetPickerComponent = (props) => {
                 primaryColor={props.primaryColor}
                 secondaryColor={props.secondaryColor}
                 customIcon={props.customIcon}
-
                 pickerUuid={props.pickerUuid}
                 placeholderAudio={props.placeholderAudio}
                 playingUuid={props.playingUuid}
                 updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
-                placeholderAudioAccessibilityLabel={props.placeholderAudioAccessibilityLabel}
               />
           }
         </TouchableOpacity>
@@ -74,8 +77,9 @@ const BottomSheetPickerComponent = (props) => {
 
 const styles = StyleSheet.create({
   titleLabel: {
-    color: 'black',
+    color: 'white',
     fontSize: TITLE_FONT_SIZE,
+    marginBottom: 10
   },
   mainContainer: {
     backgroundColor: 'white',

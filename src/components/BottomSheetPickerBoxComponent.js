@@ -22,21 +22,19 @@ const BottomSheetPickerBoxComponent = (props) => {
               btnStyle={{borderWidth: 0, borderRadius: 0}}
               itemUuid={props.pickerUuid}
               playingUuid={props.playingUuid}
-              isSpeakerIcon={true}
               updatePlayingUuid={props.updatePlayingUuid}
-              accessibilityLabel={props.placeholderAudioAccessibilityLabel}
            />
   }
 
   return (
-     <View style={{alignItems: 'center', flexDirection: 'row', height: '100%', paddingHorizontal: 16}}>
+     <View style={{alignItems: 'center', flexDirection: 'row', height: '100%', paddingRight: 16}}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           {!!props.placeholderAudio && renderPlaceholderAudio()}
 
-          <Text style={[{fontSize: PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center'}, props.placeholderStyle]}>{ getLabel() }</Text>
+          <Text style={[{fontSize: PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: 'black'}, props.placeholderStyle]}>{ getLabel() }</Text>
 
           { !!props.customIcon ? props.customIcon
-            : <FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} />
+            : <View style={{borderWidth: 1, borderColor: 'black', justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} /></View>
           }
         </View>
       </View>

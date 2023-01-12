@@ -2,8 +2,6 @@ import React from 'react';
 // import FeatherIcon from 'react-native-vector-icons/Feather';
 import IonIcon from 'react-native-vector-icons/Ionicons';
 
-// import color from '../../../themes/color';
-
 const iconSet = {
   'ion_icon': {
     play: 'volume-high-outline',

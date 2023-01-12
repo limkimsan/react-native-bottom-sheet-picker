@@ -17,12 +17,18 @@ const PlayAudioComponent = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
+    console.log('+++ audio playing uuid = ', props.playingUuid)
+    console.log(`audio playing uuid = ${props.playingUuid}, item uuid = ${props.itemUuid}`)
+    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
     // Clear the local audio if the user is switching to play another audio
-    if (!!props.playingUuid && props.playingUuid != props.itemUuid)
+    if (!!props.playingUuid && props.playingUuid != props.itemUuid) {
+      console.log('======= clear not same audio ======')
       clearLocalAudioPlayer();
+    }
 
     // Clear all the audio if the playingUuid is null (ex: exit the screen)
     if (!props.playingUuid && !!global.audioPlayer && !!localAudioPlayer.current) {
+      console.log('+++++++ clear cause playinguuid is null ++++++++')
       clearLocalAudioPlayer();
       audioPlayerService.clearAllAudio();
     }
@@ -90,7 +96,7 @@ const PlayAudioComponent = (props) => {
   }
 
   return (
-    <TouchableOpacity onPress={() => onPress()} style={[styles.btn, {borderColor: props.primaryColor}, props.btnStyle]} disabled={!props.audio} accessibilityLabel={`ចាក់សម្លេងរបស់${props.accessibilityLabel}`}>
+    <TouchableOpacity onPress={() => onPress()} style={[styles.btn, {borderColor: props.primaryColor}, props.btnStyle]} disabled={!props.audio}>
       <PlayAudioIconComponent isPlaying={isPlaying} audio={props.audio} isSpeakerIcon={props.isSpeakerIcon}
         iconStyle={props.iconStyle} iconSize={props.iconSize}
         primaryColor={props.primaryColor} secondaryColor={props.secondaryColor}

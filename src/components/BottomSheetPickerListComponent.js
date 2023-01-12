@@ -7,10 +7,16 @@ import BottomSheetPickerListItemComponent from './BottomSheetPickerListItemCompo
 
 const BottomSheetPickerListComponent = (props) => {
   const [selectedItem, setSelectedItem] = useState(props.selectedItem);
+  const [playingUuid, setPlayingUuid] = useState(null);
+
+  React.useEffect(() => {
+    console.log('== picker list playing uuid = ', playingUuid);
+    console.log('=======================================================')
+  }, [props.playingUuid]);
 
   const renderTitle = () => {
     return <React.Fragment>
-              <Text style={{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold'}}>{props.title}</Text>
+              <Text style={{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold', color: 'black'}}>{props.title}</Text>
               <DashedLineComponent/>
            </React.Fragment>
   }
@@ -37,6 +43,13 @@ const BottomSheetPickerListComponent = (props) => {
             customListItem={props.customListItem}
             listItemStyle={props.listItemStyle}
             itemTextStyle={props.itemTextStyle}
+            primaryColor={props.primaryColor}
+            secondaryColor={props.secondaryColor}
+            hideAudio={props.hideAudio}
+            // playingUuid={props.playingUuid}
+            // updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
+            playingUuid={playingUuid}
+            updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
           />
         </Pressable>
       </ScrollView>

@@ -53,7 +53,6 @@ export default function App() {
             placeholderAudio={require("../assets/sample.mp3")}
             playingUuid={playingUuid}
             updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
-            placeholderAudioAccessibilityLabel="Age picker"
           />
         </View>
       </BottomSheetModalProvider>
