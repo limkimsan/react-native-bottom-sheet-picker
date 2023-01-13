@@ -34,7 +34,7 @@ const BottomSheetPickerBoxComponent = (props) => {
           <Text style={[{fontSize: PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: 'black'}, props.placeholderStyle]}>{ getLabel() }</Text>
 
           { !!props.customIcon ? props.customIcon
-            : <View style={{borderWidth: 1, borderColor: 'black', justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} /></View>
+            : <View style={{justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} /></View>
           }
         </View>
       </View>

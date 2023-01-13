@@ -44,9 +44,16 @@ const BottomSheetPickerComponent = (props) => {
     pickerRef.current?.setBodyContent(null);
   }
 
+  const renderTitle = () => {
+    return <Text style={[styles.titleLabel, props.titleStyle]}>
+              {props.title}
+              {props.required && <Text style={{color: props.requiredColor || "#d50000"}}> *</Text>}
+           </Text>
+  }
+
   return (
     <View style={[{width: '100%'}, props.containerStyle]}>
-      { !!props.title && <Text style={[styles.titleLabel, props.titleStyle]}>{props.title}</Text> }
+      { !!props.title && renderTitle() }
 
       <View style={[styles.mainContainer, props.pickerStyle]}>
         <TouchableOpacity onPress={() => showPicker()} style={{height: '100%'}}>
@@ -94,6 +101,8 @@ export default BottomSheetPickerComponent;
   title="Your age"   // title on top of the picker box
   placeholder="Select your age"   // placeholder inside the picker box
   bottomSheetTitle="Select you age"   // title on the bottom sheet
+  required={boolean} (optional)
+  requiredColor={default = '#d50000'} (optional)
   primaryColor={default = 'black'} (optional)
   secondaryColor={deafult = '#b5b5b5'} (optional)
   items={pickerItems}
