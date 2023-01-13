@@ -64,6 +64,7 @@ const BottomSheetPickerComponent = (props) => {
                 selectedItem={props.selectedItem}
                 placeholder={props.placeholder}
                 placeholderStyle={props.placeholderStyle}
+                pickerBoxStyle={props.pickerBoxStyle}
                 primaryColor={props.primaryColor}
                 secondaryColor={props.secondaryColor}
                 customIcon={props.customIcon}
@@ -113,6 +114,7 @@ export default BottomSheetPickerComponent;
   titleStyle={{}} (optional)   // style the title of the picker
   containerStyle={{}} (optional)   // style of the wrapper
   pickerStyle={{}} (optional)   // style of the picker box container
+  pickerBoxStyle={{}} (optional)   // style of the picker box
   placeholderStyle={{}} (optional)   // style of the placeholder label of the picker box
   bottomSheetTitleStyle={{}} (optional)  // style of the bottom sheet title
   listItemStyle={{}} (optional)   // style of the list item on bottom sheet

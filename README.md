@@ -115,7 +115,8 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | :-------------------- | :-----------: | :-------: | :------------------------------------------------------------------------- |
 | titleStyle            |     {...}     |  `style`  | Style of the picker title                                                  |
 | containerStyle        |     {...}     |  `style`  | Style of the picker wrapper                                                |
-| pickerStyle           |     {...}     |  `style`  | Style of the picker box                                                    |
+| pickerStyle           |     {...}     |  `style`  | Style of the picker box container                                          |
+| pickerBoxStyle        |     {...}     |  `style`  | Style of the picker box                                                    |
 | placeholderStyle      |     {...}     |  `style`  | Style of the placeholder label in the picker box                           |
 | bottomSheetTitleStyle |     {...}     |  `style`  | Style of the bottom sheet title                                            |
 | listItemStyle         |     {...}     |  `style`  | Style of the list item on bottom sheet                                     |
