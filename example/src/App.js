@@ -46,9 +46,8 @@ export default function App() {
             items={pickerItems}
             selectedItem={selectedAge}
             onSelectItem={(item) => setSelectedAge(item)}
-            // customBottomSheetTitle={customTitle()}
-            // customListItem={(item) => customListItem(item)}
-
+            customBottomSheetTitle={customTitle()}
+            customListItem={(item) => customListItem(item)}
             pickerUuid='age-picker'
             placeholderAudio={require("../assets/sample.mp3")}
             playingUuid={playingUuid}

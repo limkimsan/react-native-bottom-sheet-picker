@@ -36,7 +36,7 @@ const BottomSheetPickerListItemComponent = (props) => {
                 <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemTextStyle]}>{ item.label }</Text>
               </View>
             }
-            {!props.hideAudio && renderAudioBtn(item.audio, item.uuid)}
+            {!props.hideListItemAudio && renderAudioBtn(item.audio, item.uuid)}
           </TouchableOpacity>
           <View style={{ borderColor: '#D3D3D3', borderBottomWidth: index == props.items.length - 1 ? 0 : 0.6 }} />
         </React.Fragment>

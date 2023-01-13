@@ -32,7 +32,7 @@ const BottomSheetPickerComponent = (props) => {
                         primaryColor={props.primaryColor}
                         secondaryColor={props.secondaryColor}
                         onSelectItem={onSelectItem}
-                        hideAudio={props.hideAudio}
+                        hideListItemAudio={props.hideListItemAudio}
                         bottomSheetTitleStyle={props.bottomSheetTitleStyle}
                       />
 
@@ -114,6 +114,7 @@ export default BottomSheetPickerComponent;
   containerStyle={{}} (optional)   // style of the wrapper
   pickerStyle={{}} (optional)   // style of the picker box container
   placeholderStyle={{}} (optional)   // style of the placeholder label of the picker box
+  bottomSheetTitleStyle={{}} (optional)  // style of the bottom sheet title
   listItemStyle={{}} (optional)   // style of the list item on bottom sheet
   itemTextStyle={{}} (optional)   // style of the label of list item on bottom sheet
   customPicker={{}} (optional)   // custom component for the picker box
@@ -128,5 +129,5 @@ export default BottomSheetPickerComponent;
   placeholderAudio={audio}
   playingUuid=''
   updatePlayingUuid={(uuid) => function}
-  placeholderAudioAccessibilityLabel=''
+  hideListItemAudio={boolean}
 /> */}

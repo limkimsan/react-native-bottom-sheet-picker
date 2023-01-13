@@ -40,7 +40,7 @@ const BottomSheetPickerListComponent = (props) => {
             itemTextStyle={props.itemTextStyle}
             primaryColor={props.primaryColor}
             secondaryColor={props.secondaryColor}
-            hideAudio={props.hideAudio}
+            hideListItemAudio={props.hideListItemAudio}
             playingUuid={playingUuid}
             updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
           />
