@@ -33,8 +33,6 @@ const BottomSheetPickerComponent = (props) => {
                         secondaryColor={props.secondaryColor}
                         onSelectItem={onSelectItem}
                         hideAudio={props.hideAudio}
-                        playingUuid={props.playingUuid}
-                        updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
                       />
 
     pickerRef.current?.setBodyContent(content);

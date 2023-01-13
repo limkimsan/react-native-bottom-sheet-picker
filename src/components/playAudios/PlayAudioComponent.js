@@ -17,18 +17,12 @@ const PlayAudioComponent = (props) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    console.log('+++ audio playing uuid = ', props.playingUuid)
-    console.log(`audio playing uuid = ${props.playingUuid}, item uuid = ${props.itemUuid}`)
-    console.log('++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++')
     // Clear the local audio if the user is switching to play another audio
-    if (!!props.playingUuid && props.playingUuid != props.itemUuid) {
-      console.log('======= clear not same audio ======')
+    if (!!props.playingUuid && props.playingUuid != props.itemUuid)
       clearLocalAudioPlayer();
-    }
 
     // Clear all the audio if the playingUuid is null (ex: exit the screen)
     if (!props.playingUuid && !!global.audioPlayer && !!localAudioPlayer.current) {
-      console.log('+++++++ clear cause playinguuid is null ++++++++')
       clearLocalAudioPlayer();
       audioPlayerService.clearAllAudio();
     }

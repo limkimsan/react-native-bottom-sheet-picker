@@ -10,8 +10,6 @@ const BottomSheetPickerListItemComponent = (props) => {
   }
 
   const renderAudioBtn = (audio, itemUuid) => {
-    // console.log(`list item audio = ${audio}, uuid = ${itemUuid}`)
-
     return <PlayAudioComponent
               iconSize={24}
               audio={audio}
