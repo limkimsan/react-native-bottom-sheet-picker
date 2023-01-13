@@ -33,6 +33,7 @@ const BottomSheetPickerComponent = (props) => {
                         secondaryColor={props.secondaryColor}
                         onSelectItem={onSelectItem}
                         hideAudio={props.hideAudio}
+                        bottomSheetTitleStyle={props.bottomSheetTitleStyle}
                       />
 
     pickerRef.current?.setBodyContent(content);

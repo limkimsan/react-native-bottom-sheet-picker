@@ -11,7 +11,7 @@ const BottomSheetPickerListComponent = (props) => {
 
   const renderTitle = () => {
     return <React.Fragment>
-              <Text style={{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold', color: 'black'}}>{props.title}</Text>
+              <Text style={[{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold', color: 'black'}, props.bottomSheetTitleStyle]}>{props.title}</Text>
               <DashedLineComponent/>
            </React.Fragment>
   }
