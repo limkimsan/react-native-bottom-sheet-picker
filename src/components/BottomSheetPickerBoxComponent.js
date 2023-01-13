@@ -27,7 +27,7 @@ const BottomSheetPickerBoxComponent = (props) => {
   }
 
   return (
-     <View style={{alignItems: 'center', flexDirection: 'row', height: '100%', paddingRight: 16}}>
+     <View style={[{alignItems: 'center', flexDirection: 'row', height: '100%'}, props.pickerBoxStyle]}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           {!!props.placeholderAudio && renderPlaceholderAudio()}
 
