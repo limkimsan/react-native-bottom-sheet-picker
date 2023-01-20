@@ -74,7 +74,10 @@
     "react-native-reanimated": "~2.12.0",
     "react-native-sound": "^0.11.2",
     "release-it": "^15.0.0",
-    "typescript": "^4.5.2"
+    "typescript": "^4.5.2",
+    "babel-plugin-module-resolver": "5.0.0",
+    "find-babel-config": "2.0.0",
+    "json5": "2.1.1"
   },
   "resolutions": {
     "@types/react": "17.0.21"
@@ -86,7 +89,10 @@
     "react-native-gesture-handler": ">=2.6.0",
     "react-native-reanimated": ">=2.13.0",
     "react-native-sound": ">=0.11.2",
-    "react-native-vector-icons": ">=9.2.0"
+    "react-native-vector-icons": ">=9.2.0",
+    "babel-plugin-module-resolver": "5.0.0",
+    "find-babel-config": "2.0.0",
+    "json5": "2.1.1"
   },
   "engines": {
     "node": ">= 16.0.0"
