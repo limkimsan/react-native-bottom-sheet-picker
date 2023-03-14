@@ -34,6 +34,9 @@ const BottomSheetPickerComponent = (props) => {
                         onSelectItem={onSelectItem}
                         hideListItemAudio={props.hideListItemAudio}
                         bottomSheetTitleStyle={props.bottomSheetTitleStyle}
+                        selectedItem={props.selectedItem}
+                        showCheckIcon={props.showCheckIcon}
+                        checkIconSize={props.checkIconSize}
                       />
 
     pickerRef.current?.setBodyContent(content);

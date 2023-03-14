@@ -108,6 +108,8 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | placeholderAudio   |     null      |  `audio`   | The audio of the placeholder (support .mp3). If null, it will not show play audio botton on the picker box  |
 | playingUuid        |      ''       |  `string`  | The uuid of the playing auido component (to prevent playing audio overlap each other)                       |
 | hideListItemAudio  |     false     |  `boolean` | Hide or show the play audio button on the list item                                                         |
+| showCheckIcon      |     false     |  `boolean` | Hide or show the check icon on the selected item                                                            |
+| checkIconSize      |      24       |  `number`  | Size of the check icon                                                                                      |
 
 #### Custom styles
 
