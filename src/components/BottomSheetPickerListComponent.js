@@ -43,6 +43,8 @@ const BottomSheetPickerListComponent = (props) => {
             hideListItemAudio={props.hideListItemAudio}
             playingUuid={playingUuid}
             updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
+            showCheckIcon={props.showCheckIcon}
+            checkIconSize={props.checkIconSize}
           />
         </Pressable>
       </ScrollView>

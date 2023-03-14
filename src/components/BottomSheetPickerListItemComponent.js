@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import Icon from 'react-native-vector-icons/Feather';
 import {LIST_ITEM_FONT_SIZE} from '../constants/font_size_constant';
 
 import PlayAudioComponent from './playAudios/PlayAudioComponent';
@@ -22,6 +23,11 @@ const BottomSheetPickerListItemComponent = (props) => {
            />
   }
 
+  const renderCheckIcon = (item) => {
+    if (props.selectedItem == item.value && props.showCheckIcon)
+      return <Icon name='check' size={props.checkIconSize || 24} color={props.secondaryColor} style={{marginLeft: !props.hideListItemAudio ? 24 : 0}}/>
+  }
+
   const renderListItem = () => {
     return props.items.map((item, index) => {
       return (
@@ -32,11 +38,12 @@ const BottomSheetPickerListItemComponent = (props) => {
           >
             { props.customListItem ? props.customListItem(item)
               :
-              <View style={{flex: 1}}>
+              <View style={{flex: 1, flexDirection: 'row'}}>
                 <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemTextStyle]}>{ item.label }</Text>
+                { !props.hideListItemAudio && renderCheckIcon(item) }
               </View>
             }
-            {!props.hideListItemAudio && renderAudioBtn(item.audio, item.uuid)}
+            {!props.hideListItemAudio ? renderAudioBtn(item.audio, item.uuid) : renderCheckIcon(item)}
           </TouchableOpacity>
           <View style={{ borderColor: '#D3D3D3', borderBottomWidth: index == props.items.length - 1 ? 0 : 0.6 }} />
         </React.Fragment>
