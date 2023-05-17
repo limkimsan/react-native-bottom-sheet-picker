@@ -31,9 +31,10 @@ const BottomSheetPickerBoxComponent = (props) => {
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           {!!props.placeholderAudio && renderPlaceholderAudio()}
 
-          <Text style={[{fontSize: PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: 'black'}, props.placeholderStyle]}>{ getLabel() }</Text>
+          <Text style={[{fontSize: props.pickerFontSize || PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: 'black'}, props.placeholderStyle]}>{ getLabel() }</Text>
 
-          { !!props.customIcon ? props.customIcon
+          { !!props.indicatorLabel ? <Text style={[{color: props.primaryColor, fontSize: props.pickerFontSize, marginRight: 8}, props.indicatorLabelStyle]}>{props.indicatorLabel}</Text>
+            : !!props.customIcon ? props.customIcon
             : <View style={{justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} /></View>
           }
         </View>

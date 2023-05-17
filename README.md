@@ -110,19 +110,24 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | hideListItemAudio  |     false     |  `boolean` | Hide or show the play audio button on the list item                                                         |
 | showCheckIcon      |     false     |  `boolean` | Hide or show the check icon on the selected item                                                            |
 | checkIconSize      |      24       |  `number`  | Size of the check icon                                                                                      |
+| isOutlined         |     false     |  `boolean` | If set to `true`, the picker will render in outlined style                                                  |
+| pickerFontSize     |      16       |  `number`  | Font size of the label inside the picker box                                                                |
+| indicatorLabel     |      ''       |  `string`  | The label on the right side of the picker box                                                               |
 
 #### Custom styles
 
-| Prop                  |    Default    |   Type    | Description                                                                |
-| :-------------------- | :-----------: | :-------: | :------------------------------------------------------------------------- |
-| titleStyle            |     {...}     |  `style`  | Style of the picker title                                                  |
-| containerStyle        |     {...}     |  `style`  | Style of the picker wrapper                                                |
-| pickerStyle           |     {...}     |  `style`  | Style of the picker box container                                          |
-| pickerBoxStyle        |     {...}     |  `style`  | Style of the picker box                                                    |
-| placeholderStyle      |     {...}     |  `style`  | Style of the placeholder label in the picker box                           |
-| bottomSheetTitleStyle |     {...}     |  `style`  | Style of the bottom sheet title                                            |
-| listItemStyle         |     {...}     |  `style`  | Style of the list item on bottom sheet                                     |
-| itemTextStyle         |     {...}     |  `style`  | Style of the label of the list item on bottom sheet                        |
+| Prop                         |    Default    |   Type    | Description                                                                |
+| :--------------------------- | :-----------: | :-------: | :------------------------------------------------------------------------- |
+| titleStyle                   |     {...}     |  `style`  | Style of the picker title                                                  |
+| containerStyle               |     {...}     |  `style`  | Style of the picker wrapper                                                |
+| pickerStyle                  |     {...}     |  `style`  | Style of the picker box container                                          |
+| pickerBoxStyle               |     {...}     |  `style`  | Style of the picker box                                                    |
+| placeholderStyle             |     {...}     |  `style`  | Style of the placeholder label in the picker box                           |
+| bottomSheetTitleStyle        |     {...}     |  `style`  | Style of the bottom sheet title                                            |
+| listItemStyle                |     {...}     |  `style`  | Style of the list item on bottom sheet                                     |
+| itemTextStyle                |     {...}     |  `style`  | Style of the label of the list item on bottom sheet                        |
+| outlinedTitleContainerStyle  |     {...}     |  `style`  | Style of the outlined label container                                      |
+| indicatorLabelStyle          |     {...}     |  `style`  | Style of the label on the right side of the picker box                     |
 
 #### Custom components
 | Prop                    |    Default    |  Type  | Description                                                                |

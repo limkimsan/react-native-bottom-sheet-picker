@@ -1,10 +1,12 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
+import BottomSheetPickerOutlinedTitleComponent from './BottomSheetPickerOutlinedTitleComponent';
 import BottomSheetPickerBoxComponent from './BottomSheetPickerBoxComponent';
 import FormBottomSheetModalComponent from './FormBottomSheetModalComponent';
 import BottomSheetPickerListComponent from './BottomSheetPickerListComponent';
 import {TITLE_FONT_SIZE} from '../constants/font_size_constant';
+import pickerStyleHelper from '../helpers/picker_style_helper';
 
 const BottomSheetPickerComponent = (props) => {
   let pickerRef = React.createRef();
@@ -48,18 +50,19 @@ const BottomSheetPickerComponent = (props) => {
     pickerRef.current?.setBodyContent(null);
   }
 
-  const renderTitle = () => {
-    return <Text style={[styles.titleLabel, props.titleStyle]}>
+  const renderPickerTitle = () => {
+    return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor} titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} />
+          : <Text style={[styles.titleLabel, props.titleStyle]}>
               {props.title}
               {props.required && <Text style={{color: props.requiredColor || "#d50000"}}> *</Text>}
-           </Text>
+            </Text>
   }
 
   return (
     <View style={[{width: '100%'}, props.containerStyle]}>
-      { !!props.title && renderTitle() }
+      { !!props.title && renderPickerTitle()}
 
-      <View style={[styles.mainContainer, props.pickerStyle]}>
+      <View style={[pickerStyleHelper.getContainerStyleByType(props.isOutlined), props.pickerStyle]}>
         <TouchableOpacity onPress={() => showPicker()} style={{height: '100%'}}>
           { !!props.customPicker ? props.customPicker
             : <BottomSheetPickerBoxComponent
@@ -75,6 +78,9 @@ const BottomSheetPickerComponent = (props) => {
                 placeholderAudio={props.placeholderAudio}
                 playingUuid={props.playingUuid}
                 updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
+                indicatorLabel={props.indicatorLabel}
+                pickerFontSize={props.pickerFontSize}
+                indicatorLabelStyle={props.indicatorLabelStyle}
               />
           }
         </TouchableOpacity>
@@ -90,12 +96,6 @@ const styles = StyleSheet.create({
     color: 'white',
     fontSize: TITLE_FONT_SIZE,
     marginBottom: 10
-  },
-  mainContainer: {
-    backgroundColor: 'white',
-    borderRadius: 10,
-    marginTop: 5,
-    height: 56,
   },
 });
 
