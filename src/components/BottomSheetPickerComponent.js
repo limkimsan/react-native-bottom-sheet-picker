@@ -51,7 +51,8 @@ const BottomSheetPickerComponent = (props) => {
   }
 
   const renderPickerTitle = () => {
-    return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor} titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} />
+    return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor}
+                                titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} disabled={props.disabled} disabledColor={props.disabledColor} />
           : <Text style={[styles.titleLabel, props.titleStyle]}>
               {props.title}
               {props.required && <Text style={{color: props.requiredColor || "#d50000"}}> *</Text>}
@@ -62,7 +63,7 @@ const BottomSheetPickerComponent = (props) => {
     <View style={[{width: '100%'}, props.containerStyle]}>
       { !!props.title && renderPickerTitle()}
 
-      <View style={[pickerStyleHelper.getContainerStyleByType(props.isOutlined), props.pickerStyle]}>
+      <View style={[pickerStyleHelper.getContainerStyleByType(props.isOutlined, props.disabled, props.disabledColor), props.pickerStyle]}>
         <TouchableOpacity onPress={() => showPicker()} style={{height: '100%'}}>
           { !!props.customPicker ? props.customPicker
             : <BottomSheetPickerBoxComponent
@@ -81,6 +82,8 @@ const BottomSheetPickerComponent = (props) => {
                 indicatorLabel={props.indicatorLabel}
                 pickerFontSize={props.pickerFontSize}
                 indicatorLabelStyle={props.indicatorLabelStyle}
+                disabled={props.disabled}
+                disabledColor={props.disabledColor}
               />
           }
         </TouchableOpacity>

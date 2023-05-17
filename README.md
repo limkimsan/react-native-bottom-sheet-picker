@@ -113,6 +113,8 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | isOutlined         |     false     |  `boolean` | If set to `true`, the picker will render in outlined style                                                  |
 | pickerFontSize     |      16       |  `number`  | Font size of the label inside the picker box                                                                |
 | indicatorLabel     |      ''       |  `string`  | The label on the right side of the picker box                                                               |
+| disabled           |     false     |  `boolean` | The status to disable the picker                                                                            |
+| disabledColor      |   '#cdccc'    |  `string`  | The color of the picker when disabled                                                                       |
 
 #### Custom styles
 
