@@ -115,6 +115,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | indicatorLabel     |      ''       |  `string`  | The label on the right side of the picker box                                                               |
 | disabled           |     false     |  `boolean` | The status to disable the picker                                                                            |
 | disabledColor      |   '#cdccc'    |  `string`  | The color of the picker when disabled                                                                       |
+| fontFamily         |      ''       |  `string`  | The font family of all the label in the picker                                                              |
 
 #### Custom styles
 
