@@ -39,7 +39,7 @@ const BottomSheetPickerListItemComponent = (props) => {
             { props.customListItem ? props.customListItem(item)
               :
               <View style={{flex: 1, flexDirection: 'row'}}>
-                <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.fontFamily && {fontFamily: props.fontFamily}, props.itemTextStyle]}>{ item.label }</Text>
+                <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}>{ item.label }</Text>
                 { !props.hideListItemAudio && renderCheckIcon(item) }
               </View>
             }

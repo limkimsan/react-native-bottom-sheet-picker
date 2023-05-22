@@ -39,7 +39,8 @@ const BottomSheetPickerComponent = (props) => {
                         selectedItem={props.selectedItem}
                         showCheckIcon={props.showCheckIcon}
                         checkIconSize={props.checkIconSize}
-                        fonfamily={props.fontFamily}
+                        titleFontFamily={props.titleFontFamily}
+                        itemFontFamily={props.itemFontFamily}
                       />
 
     pickerRef.current?.setBodyContent(content);
@@ -52,9 +53,9 @@ const BottomSheetPickerComponent = (props) => {
   }
 
   const renderPickerTitle = () => {
-    return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor} fonfamily={props.fontFamily}
+    return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor} titleFontFamily={props.titleFontFamily}
                                 titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} disabled={props.disabled} disabledColor={props.disabledColor} />
-          : <Text style={[styles.titleLabel, props.fontFamily && {fontFamily: props.fontFamily}, props.titleStyle]}>
+          : <Text style={[styles.titleLabel, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.titleStyle]}>
               {props.title}
               {props.required && <Text style={{color: props.requiredColor || "#d50000"}}> *</Text>}
             </Text>

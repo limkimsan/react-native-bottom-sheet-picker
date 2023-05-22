@@ -4,7 +4,7 @@ import {View, Text, StyleSheet} from 'react-native';
 const BottomSheetPickerOutlinedTitleComponent = (props) => {
   return (
     <View style={[styles.container, props.outlinedTitleContainerStyle]}>
-      <Text style={[styles.titleLabel, props.fontFamily && {fontFamily: props.fontFamily}, props.titleStyle]}>
+      <Text style={[styles.titleLabel, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.titleStyle]}>
         {props.title}
         {props.required && <Text style={{color: props.requiredColor || "#d50000", fontSize: 12}}> *</Text>}
       </Text>
