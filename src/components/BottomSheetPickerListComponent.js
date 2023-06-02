@@ -11,7 +11,9 @@ const BottomSheetPickerListComponent = (props) => {
 
   const renderTitle = () => {
     return <React.Fragment>
-              <Text style={[{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold', color: 'black'}, props.bottomSheetTitleStyle]}>{props.title}</Text>
+              <Text style={[{fontSize: 18, marginBottom: 20, paddingHorizontal: 16, fontWeight: 'bold', color: 'black'}, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.bottomSheetTitleStyle]}>
+                {props.title}
+              </Text>
               <DashedLineComponent/>
            </React.Fragment>
   }
@@ -45,6 +47,7 @@ const BottomSheetPickerListComponent = (props) => {
             updatePlayingUuid={(uuid) => setPlayingUuid(uuid)}
             showCheckIcon={props.showCheckIcon}
             checkIconSize={props.checkIconSize}
+            itemFontFamily={props.itemFontFamily}
           />
         </Pressable>
       </ScrollView>

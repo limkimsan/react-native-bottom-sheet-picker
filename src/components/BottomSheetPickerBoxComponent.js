@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import PlayAudioComponent from './playAudios/PlayAudioComponent';
 import {PLACEHOLDER_FONT_SIZE} from '../constants/font_size_constant';
+import pickerStyleHelper from '../helpers/picker_style_helper';
 
 const BottomSheetPickerBoxComponent = (props) => {
   const getLabel = () => {
@@ -26,15 +27,18 @@ const BottomSheetPickerBoxComponent = (props) => {
            />
   }
 
+  const pressableColor = pickerStyleHelper.getColor(props.disabled, props.disabledColor, props.primaryColor);
+
   return (
      <View style={[{alignItems: 'center', flexDirection: 'row', height: '100%'}, props.pickerBoxStyle]}>
         <View style={{flex: 1, flexDirection: 'row', justifyContent: 'center'}}>
           {!!props.placeholderAudio && renderPlaceholderAudio()}
-
-          <Text style={[{fontSize: PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: 'black'}, props.placeholderStyle]}>{ getLabel() }</Text>
-
-          { !!props.customIcon ? props.customIcon
-            : <View style={{justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={props.primaryColor || 'black'} size={28} /></View>
+          <Text style={[{fontSize: props.pickerFontSize || PLACEHOLDER_FONT_SIZE, flex: 1, textAlignVertical: 'center', color: pickerStyleHelper.getColor(props.disabled, props.disabledColor, 'black')}, props.fontFamily && {fontFamily: props.fontFamily}, props.placeholderStyle]}>
+            { getLabel() }
+          </Text>
+          { !!props.indicatorLabel ? <Text style={[{color: pressableColor, fontSize: props.pickerFontSize, marginRight: 8}, props.fontFamily && {fontFamily: props.fontFamily}, props.indicatorLabelStyle]}>{props.indicatorLabel}</Text>
+            : !!props.customIcon ? props.customIcon
+            : <View style={{justifyContent: 'center'}}><FeatherIcon name="chevron-right" color={pressableColor || 'black'} size={28} /></View>
           }
         </View>
       </View>
