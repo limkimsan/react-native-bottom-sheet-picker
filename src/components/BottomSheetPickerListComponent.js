@@ -22,8 +22,9 @@ const BottomSheetPickerListComponent = (props) => {
     if (item.disabled)
       return;
 
-    setSelectedItem(item.value);
-    props.onSelectItem(item.value);
+    const value = !!props.valueFieldName ? item[props.valueFieldName] : item.value
+    setSelectedItem(value);
+    props.onSelectItem(value);
   }
 
   const renderList = () => {

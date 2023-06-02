@@ -41,6 +41,7 @@ const BottomSheetPickerComponent = (props) => {
                         checkIconSize={props.checkIconSize}
                         titleFontFamily={props.titleFontFamily}
                         itemFontFamily={props.itemFontFamily}
+                        valueFieldName={props.valueFieldName}
                       />
 
     pickerRef.current?.setBodyContent(content);
@@ -86,6 +87,7 @@ const BottomSheetPickerComponent = (props) => {
                 indicatorLabelStyle={props.indicatorLabelStyle}
                 disabled={props.disabled}
                 disabledColor={props.disabledColor}
+                valueFieldName={props.valueFieldName}
               />
           }
         </TouchableOpacity>
