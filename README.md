@@ -117,7 +117,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | disabledColor      |   '#cdccc'    |  `string`  | The color of the picker when disabled                                                                       |
 | titleFontFamily    |      ''       |  `string`  | The font family of the title in the bottom sheet                                                            |
 | itemFontFamily     |      ''       |  `string`  | The font family of the item in the bottom sheet                                                             |
-| valueFieldName     |     null      |  `string`  | The custom field name used to get the selected value of the item (default field name is `value`)            |
+| selectedFieldName  |     null      |  `string`  | The custom field name used to get the selected value of the item (default field name is `value`)            |
 
 #### Custom styles
 

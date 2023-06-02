@@ -22,7 +22,7 @@ const BottomSheetPickerListComponent = (props) => {
     if (item.disabled)
       return;
 
-    const value = !!props.valueFieldName ? item[props.valueFieldName] : item.value
+    const value = !!props.selectedFieldName ? item[props.selectedFieldName] : item.value
     setSelectedItem(value);
     props.onSelectItem(value);
   }
