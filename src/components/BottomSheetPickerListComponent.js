@@ -4,6 +4,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 import DashedLineComponent from './DashedLineComponent';
 import BottomSheetPickerListItemComponent from './BottomSheetPickerListItemComponent';
+import pickerHelper from '../helpers/picker_helper';
 
 const BottomSheetPickerListComponent = (props) => {
   const [selectedItem, setSelectedItem] = useState(props.selectedItem);
@@ -22,9 +23,8 @@ const BottomSheetPickerListComponent = (props) => {
     if (item.disabled)
       return;
 
-    const value = !!props.selectedFieldName ? item[props.selectedFieldName] : item.value
-    setSelectedItem(value);
-    props.onSelectItem(value);
+    setSelectedItem(pickerHelper.getSelectedValue(props.selectedFieldName, item));
+    props.onSelectItem(pickerHelper.getSelectedValue(props.selectedFieldName, item));
   }
 
   const renderList = () => {
@@ -49,6 +49,8 @@ const BottomSheetPickerListComponent = (props) => {
             showCheckIcon={props.showCheckIcon}
             checkIconSize={props.checkIconSize}
             itemFontFamily={props.itemFontFamily}
+            selectedFieldName={props.selectedFieldName}
+            showRadioStyle={props.showRadioStyle}
           />
         </Pressable>
       </ScrollView>

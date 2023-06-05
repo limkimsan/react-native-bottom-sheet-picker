@@ -42,6 +42,7 @@ const BottomSheetPickerComponent = (props) => {
                         titleFontFamily={props.titleFontFamily}
                         itemFontFamily={props.itemFontFamily}
                         selectedFieldName={props.selectedFieldName}
+                        showRadioStyle={props.showRadioStyle}
                       />
 
     pickerRef.current?.setBodyContent(content);
