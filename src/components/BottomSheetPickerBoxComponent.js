@@ -10,7 +10,8 @@ const BottomSheetPickerBoxComponent = (props) => {
     if (!props.items)
       return props.placeholder || '';
 
-    const selectedItem = props.items.filter((item) => item.value === props.selectedItem);
+    const fieldName = !!props.selectedFieldName ? props.selectedFieldName : 'value';
+    const selectedItem = props.items.filter((item) => item[fieldName] === props.selectedItem);
     return selectedItem.length > 0 ? selectedItem[0].label : props.placeholder;
   }
 
