@@ -56,10 +56,10 @@ const BottomSheetPickerComponent = (props) => {
 
   const renderPickerTitle = () => {
     return props.isOutlined ? <BottomSheetPickerOutlinedTitleComponent title={props.title} required={props.required} requiredColor={props.requiredColor} titleFontFamily={props.titleFontFamily}
-                                titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} disabled={props.disabled} disabledColor={props.disabledColor} />
+                                titleStyle={props.titleStyle} outlinedTitleContainerStyle={props.outlinedTitleContainerStyle} disabled={props.disabled} disabledColor={props.disabledColor} requiredTitleStyle={props.requiredTitleStyle} />
           : <Text style={[styles.titleLabel, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.titleStyle]}>
               {props.title}
-              {props.required && <Text style={{color: props.requiredColor || "#d50000"}}> *</Text>}
+              {props.required && <Text style={[{color: props.requiredColor || "#d50000"}, props.requiredTitleStyle]}> *</Text>}
             </Text>
   }
 

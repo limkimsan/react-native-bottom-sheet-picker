@@ -134,6 +134,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | itemTextStyle                |     {...}     |  `style`  | Style of the label of the list item on bottom sheet                        |
 | outlinedTitleContainerStyle  |     {...}     |  `style`  | Style of the outlined label container                                      |
 | indicatorLabelStyle          |     {...}     |  `style`  | Style of the label on the right side of the picker box                     |
+| requiredTitleStyle           |     {...}     |  `style`  | Style of the required sign "*" on the title                                |
 
 #### Custom components
 | Prop                    |    Default    |  Type  | Description                                                                |

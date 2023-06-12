@@ -6,7 +6,7 @@ const BottomSheetPickerOutlinedTitleComponent = (props) => {
     <View style={[styles.container, props.outlinedTitleContainerStyle]}>
       <Text style={[styles.titleLabel, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.titleStyle]}>
         {props.title}
-        {props.required && <Text style={{color: props.requiredColor || "#d50000", fontSize: 12}}> *</Text>}
+        {props.required && <Text style={[{color: props.requiredColor || "#d50000", fontSize: 12}, props.titleFontFamily && {fontFamily: props.titleFontFamily}, props.requiredTitleStyle]}> *</Text>}
       </Text>
     </View>
   )
