@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
+import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
 import {LIST_ITEM_FONT_SIZE} from '../constants/font_size_constant';
 import PlayAudioComponent from './playAudios/PlayAudioComponent';
 import pickerHelper from '../helpers/picker_helper';
@@ -27,9 +28,16 @@ const BottomSheetPickerListItemComponent = (props) => {
     if (props.showCheckIcon && props.selectedItem == pickerHelper.getSelectedValue(props.selectedFieldName, item))
       return <Icon name='check' size={props.checkIconSize || 24} color={props.secondaryColor} style={{marginLeft: !props.hideListItemAudio ? 24 : 0}}/>
     else if (props.showRadioStyle)
-      return <View style={styles.radioButton}>
+      return <View style={styles.roundContainer}>
               {props.selectedItem == pickerHelper.getSelectedValue(props.selectedFieldName, item) && <View style={{width: 14, height: 14, borderRadius: 14, backgroundColor: props.primaryColor}} />}
             </View>
+  }
+
+  const renderLeftCheckIcon = (item) => {
+    const containerStyle = {backgroundColor: props.primaryColor, borderColor: props.primaryColor};
+    return <View style={[styles.roundContainer, {marginRight: 10, height: 22, width: 22}, item.value == props.selectedItem && containerStyle]}>
+              <FontAwesomeIcon name='check' size={13} color='white'/>
+           </View>
   }
 
   const renderListItem = () => {
@@ -43,6 +51,7 @@ const BottomSheetPickerListItemComponent = (props) => {
             { props.customListItem ? props.customListItem(item)
               :
               <View style={{flex: 1, flexDirection: 'row'}}>
+                { (props.showLeftCheckIcon && !props.showCheckIcon && !props.showRadioStyle) && renderLeftCheckIcon(item)}
                 <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}>{ item.label }</Text>
               </View>
             }
@@ -63,7 +72,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     height: 56,
   },
-  radioButton: {
+  roundContainer: {
+    alignItems: 'center',
     alignItems: 'center',
     borderColor: '#D3D3D3',
     borderRadius: 20,
