@@ -36,7 +36,7 @@ const BottomSheetPickerListItemComponent = (props) => {
   const renderLeftCheckIcon = (item) => {
     const containerStyle = {backgroundColor: props.primaryColor, borderWidth: 0};
     return <View style={[styles.roundContainer, {marginRight: 10, height: 22, width: 22}, item.value == props.selectedItem && containerStyle]}>
-              <FontAwesomeIcon name='check' size={13} color='white'/>
+              {(item.value == props.selectedItem) && <FontAwesomeIcon name='check' size={13} color={props.leftCheckIconColor || '#ffffff'}/>}
            </View>
   }
 
