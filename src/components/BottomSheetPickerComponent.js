@@ -44,6 +44,7 @@ const BottomSheetPickerComponent = (props) => {
                         selectedFieldName={props.selectedFieldName}
                         showRadioStyle={props.showRadioStyle}
                         showLeftCheckIcon={props.showLeftCheckIcon}
+                        leftCheckIconColor={props.leftCheckIconColor}
                       />
 
     pickerRef.current?.setBodyContent(content);
