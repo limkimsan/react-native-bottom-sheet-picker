@@ -2,7 +2,7 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
-import {LIST_ITEM_FONT_SIZE} from '../constants/font_size_constant';
+import {LIST_ITEM_FONT_SIZE, LIST_ITEM_SUBTITLE_FONT_SIZE} from '../constants/font_size_constant';
 import PlayAudioComponent from './playAudios/PlayAudioComponent';
 import pickerHelper from '../helpers/picker_helper';
 
@@ -46,18 +46,21 @@ const BottomSheetPickerListItemComponent = (props) => {
         <React.Fragment key={index}>
           <TouchableOpacity
             onPress={() => props.onSelectItem(item)}
-            style={[styles.container, props.listItemStyle]}
+            style={[styles.container, props.showSubtitle && {height: 64}, (props.showSubtitle && item.subtitle) && {paddingTop: 2}, props.listItemStyle]}
           >
             { props.customListItem ? props.customListItem(item)
               :
-              <View style={{flex: 1, flexDirection: 'row'}}>
+              <View style={{flex: 1, flexDirection: "row", alignItems: 'center'}}>
                 { (props.showLeftCheckIcon && !props.showCheckIcon && !props.showRadioStyle) && renderLeftCheckIcon(item)}
-                <Text style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}>{ item.label }</Text>
+                <View style={{flex: 1}}>
+                  <Text numberOfLines={1} style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}>{ item.label }</Text>
+                  {(props.showSubtitle && item.subtitle) && <Text numberOfLines={1} style={[styles.subtitle, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.subtitleStyle]}>{item.subtitle}</Text> }
+                </View>
               </View>
             }
             {!props.hideListItemAudio ? renderAudioBtn(item.audio, item.uuid) : renderRightIcon(item)}
           </TouchableOpacity>
-          <View style={{ borderColor: '#D3D3D3', borderBottomWidth: index == props.items.length - 1 ? 0 : 0.6 }} />
+          <View style={{ borderColor: '#D3D3D3', borderBottomWidth: index == props.items.length - 1 ? 0 : 0.7 }} />
         </React.Fragment>
       )
     })
@@ -70,7 +73,7 @@ const styles = StyleSheet.create({
   container: {
     alignItems: 'center',
     flexDirection: 'row',
-    height: 56,
+    minHeight: 56,
   },
   roundContainer: {
     alignItems: 'center',
@@ -81,6 +84,11 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     height: 24,
     width: 24,
+  },
+  subtitle: {
+    color: '#989696',
+    fontSize: LIST_ITEM_SUBTITLE_FONT_SIZE,
+    marginTop: 4 
   }
 });
 

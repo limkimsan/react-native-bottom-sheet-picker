@@ -53,6 +53,8 @@ const BottomSheetPickerListComponent = (props) => {
             showRadioStyle={props.showRadioStyle}
             showLeftCheckIcon={props.showLeftCheckIcon}
             leftCheckIconColor={props.leftCheckIconColor}
+            showSubtitle={props.showSubtitle}
+            subtitleStyle={props.subtitleStyle}
           />
         </Pressable>
       </ScrollView>
