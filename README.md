@@ -121,6 +121,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | showRadioStyle     |     false     |  `boolean` | If `true`, show the radio button style (circle & round icon) on the right side of each list                                                   |
 | showLeftCheckIcon  |     false     |  `boolean` | If `true` with showRadioStyle and showCheckIcon are `false`, show the radio button style (circle & check icon) on the left side of each list  |
 | leftCheckIconColor |   '#ffffff'   |  `string`  | The color of the check icon on the left side of the list item                                 |
+| showSubtitle       |     false     |  `boolean` | If `true` show the subtitle in the list item (make sure you have subtitle atribute in the items)   |
 
 #### Custom styles
 
@@ -137,6 +138,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | outlinedTitleContainerStyle  |     {...}     |  `style`  | Style of the outlined label container                                      |
 | indicatorLabelStyle          |     {...}     |  `style`  | Style of the label on the right side of the picker box                     |
 | requiredTitleStyle           |     {...}     |  `style`  | Style of the required sign "*" on the title                                |
+| subtitleStyle                |     {...}     |  `style`  | Style of the subtitle in the list item                                     |
 
 #### Custom components
 | Prop                    |    Default    |  Type  | Description                                                                |
