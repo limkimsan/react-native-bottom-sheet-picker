@@ -1,6 +1,6 @@
 {
   "name": "react-native-bottom-sheet-picker",
-  "version": "1.1.13",
+  "version": "1.2.0",
   "description": "A picker component that uses the bottom sheet to show the list item instead of using the dropdown.",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
