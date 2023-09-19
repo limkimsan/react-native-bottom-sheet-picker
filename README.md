@@ -18,7 +18,7 @@ npm install react-native-bottom-sheet-picker
 
 ## Installing dependencies
 ```sh
-npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-reanimated react-native-vector-icons react-native-sound
+npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-reanimated react-native-vector-icons react-native-sound react-native-text-highlighter
 ```
 
 - [@gorhom/bottom-sheet](https://gorhom.github.io/react-native-bottom-sheet/)
@@ -26,6 +26,7 @@ npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-re
 - [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-sound](https://github.com/zmxv/react-native-sound)
+- [react-native-text-highlighter](https://github.com/limkimsan/react-native-text-hightlight)
 
 ## Usage
 
@@ -122,6 +123,8 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | showLeftCheckIcon  |     false     |  `boolean` | If `true` with showRadioStyle and showCheckIcon are `false`, show the radio button style (circle & check icon) on the left side of each list  |
 | leftCheckIconColor |   '#ffffff'   |  `string`  | The color of the check icon on the left side of the list item                                 |
 | showSubtitle       |     false     |  `boolean` | If `true` show the subtitle in the list item (make sure you have subtitle atribute in the items)   |
+| isSearchable       |     false     |  `boolean` | If `true` show a search box above the list item   |
+| searchPlaceholder  |      ''       |  `string`  | The placeholder of the search text input   |
 
 #### Custom styles
 
@@ -139,6 +142,7 @@ import {GestureHandlerRootView} from 'react-native-gesture-handler';
 | indicatorLabelStyle          |     {...}     |  `style`  | Style of the label on the right side of the picker box                     |
 | requiredTitleStyle           |     {...}     |  `style`  | Style of the required sign "*" on the title                                |
 | subtitleStyle                |     {...}     |  `style`  | Style of the subtitle in the list item                                     |
+| searchInputStyle             |     {...}     |  `style`  | Style of the search text input (if isSearchable is setted to `true`)       |
 
 #### Custom components
 | Prop                    |    Default    |  Type  | Description                                                                |

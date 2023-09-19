@@ -47,6 +47,9 @@ const BottomSheetPickerComponent = (props) => {
                         leftCheckIconColor={props.leftCheckIconColor}
                         showSubtitle={props.showSubtitle}
                         subtitleStyle={props.subtitleStyle}
+                        isSearchable={props.isSearchable}
+                        searchPlaceholder={props.searchPlaceholder}
+                        searchInputStyle={props.searchInputStyle}
                       />
 
     pickerRef.current?.setBodyContent(content);

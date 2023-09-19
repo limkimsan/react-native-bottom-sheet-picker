@@ -2,6 +2,8 @@ import React from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import Icon from 'react-native-vector-icons/Feather';
 import FontAwesomeIcon from 'react-native-vector-icons/FontAwesome5';
+import TextHighlight from 'react-native-text-highlighter';
+
 import {LIST_ITEM_FONT_SIZE, LIST_ITEM_SUBTITLE_FONT_SIZE} from '../constants/font_size_constant';
 import PlayAudioComponent from './playAudios/PlayAudioComponent';
 import pickerHelper from '../helpers/picker_helper';
@@ -53,7 +55,10 @@ const BottomSheetPickerListItemComponent = (props) => {
               <View style={{flex: 1, flexDirection: "row", alignItems: 'center'}}>
                 { (props.showLeftCheckIcon && !props.showCheckIcon && !props.showRadioStyle) && renderLeftCheckIcon(item)}
                 <View style={{flex: 1}}>
-                  <Text numberOfLines={1} style={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}>{ item.label }</Text>
+                  <TextHighlight textToHighlight={item.label} searchWords={[props.searchedText]} numberOfLines={1}
+                    textStyle={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}
+                  />
+
                   {(props.showSubtitle && item.subtitle) && <Text numberOfLines={1} style={[styles.subtitle, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.subtitleStyle]}>{item.subtitle}</Text> }
                 </View>
               </View>
