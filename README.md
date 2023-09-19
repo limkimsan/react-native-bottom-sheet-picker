@@ -18,7 +18,7 @@ npm install react-native-bottom-sheet-picker
 
 ## Installing dependencies
 ```sh
-npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-reanimated react-native-vector-icons react-native-sound
+npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-reanimated react-native-vector-icons react-native-sound react-native-text-highlighter
 ```
 
 - [@gorhom/bottom-sheet](https://gorhom.github.io/react-native-bottom-sheet/)
@@ -26,6 +26,7 @@ npm install @gorhom/bottom-sheet@^4 react-native-gesture-handler react-native-re
 - [react-native-reanimated](https://github.com/software-mansion/react-native-reanimated)
 - [react-native-vector-icons](https://github.com/oblador/react-native-vector-icons)
 - [react-native-sound](https://github.com/zmxv/react-native-sound)
+- [react-native-text-highlighter](https://github.com/limkimsan/react-native-text-hightlight)
 
 ## Usage
 

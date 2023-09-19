@@ -35,6 +35,7 @@ const BottomSheetPickerListComponent = (props) => {
         <Pressable>
           <BottomSheetPickerListItemComponent
             items={props.items.filter(item => item.label.includes(searchedText))}
+            searchedText={searchedText}
             selectedItem={selectedItem}
             onSelectItem={(item) => onSelectItem(item)}
             showConfirmDelete={props.showConfirmDelete}
