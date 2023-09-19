@@ -4,11 +4,13 @@ import { ScrollView } from 'react-native-gesture-handler';
 
 import DashedLineComponent from './DashedLineComponent';
 import BottomSheetPickerListItemComponent from './BottomSheetPickerListItemComponent';
+import SearchBoxComponent from './SearchBoxComponent';
 import pickerHelper from '../helpers/picker_helper';
 
 const BottomSheetPickerListComponent = (props) => {
   const [selectedItem, setSelectedItem] = useState(props.selectedItem);
   const [playingUuid, setPlayingUuid] = useState(null);
+  const [searchedText, setSearchedText] = useState('');
 
   const renderTitle = () => {
     return <React.Fragment>
@@ -32,7 +34,7 @@ const BottomSheetPickerListComponent = (props) => {
       <ScrollView contentContainerStyle={[{flexGrow: 1, padding: 16, paddingTop: 0, paddingBottom: 20}, props.scrollViewStyle]}>
         <Pressable>
           <BottomSheetPickerListItemComponent
-            items={props.items}
+            items={props.items.filter(item => item.label.includes(searchedText))}
             selectedItem={selectedItem}
             onSelectItem={(item) => onSelectItem(item)}
             showConfirmDelete={props.showConfirmDelete}
@@ -65,6 +67,11 @@ const BottomSheetPickerListComponent = (props) => {
     <TouchableWithoutFeedback onPress={() => Keyboard.dismiss()}>
       <View style={{backgroundColor: 'white', height: props.pickerContentHeight || 425}}>
         { !!props.customBottomSheetTitle ? props.customBottomSheetTitle : renderTitle() }
+        { props.isSearchable &&
+          <SearchBoxComponent placeholder={props.searchPlaceholder} itemTextStyle={props.itemTextStyle} searchInputStyle={props.searchInputStyle}
+            onSearchChange={(text) => setSearchedText(text)}
+          />
+        }
         { renderList() }
       </View>
     </TouchableWithoutFeedback>
