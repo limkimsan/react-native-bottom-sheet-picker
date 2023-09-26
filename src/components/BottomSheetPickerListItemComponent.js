@@ -9,24 +9,25 @@ import PlayAudioComponent from './playAudios/PlayAudioComponent';
 import pickerHelper from '../helpers/picker_helper';
 
 const BottomSheetPickerListItemComponent = (props) => {
-  const itemColor = (item, defaultColor) => {
+  const {item} = props;
+  const itemColor = (defaultColor) => {
     return (item.disabled && pickerHelper.getSelectedValue(props.selectedFieldName, item) != props.selectedItem) ? '#b5b5b5' : defaultColor;
   }
 
-  const renderAudioBtn = (audio, itemUuid) => {
+  const renderAudioBtn = () => {
     return <PlayAudioComponent
               iconSize={24}
-              audio={audio}
+              audio={item.audio}
               primaryColor={props.primaryColor}
               secondaryColor={props.secondaryColor}
               btnStyle={{borderWidth: 0, borderRadius: 0}}
-              itemUuid={itemUuid}
+              itemUuid={item.uuid}
               playingUuid={props.playingUuid}
               updatePlayingUuid={(uuid) => props.updatePlayingUuid(uuid)}
            />
   }
 
-  const renderRightIcon = (item) => {
+  const renderRightIcon = () => {
     if (props.showCheckIcon && props.selectedItem == pickerHelper.getSelectedValue(props.selectedFieldName, item))
       return <Icon name='check' size={props.checkIconSize || 24} color={props.secondaryColor} style={{marginLeft: !props.hideListItemAudio ? 24 : 0}}/>
     else if (props.showRadioStyle)
@@ -35,43 +36,37 @@ const BottomSheetPickerListItemComponent = (props) => {
             </View>
   }
 
-  const renderLeftCheckIcon = (item) => {
+  const renderLeftCheckIcon = () => {
     const containerStyle = {backgroundColor: props.primaryColor, borderWidth: 0};
     return <View style={[styles.roundContainer, {marginRight: 10, height: 22, width: 22}, item.value == props.selectedItem && containerStyle]}>
               {(item.value == props.selectedItem) && <FontAwesomeIcon name='check' size={13} color={props.leftCheckIconColor || '#ffffff'}/>}
            </View>
   }
 
-  const renderListItem = () => {
-    return props.items.map((item, index) => {
-      return (
-        <React.Fragment key={index}>
-          <TouchableOpacity
-            onPress={() => props.onSelectItem(item)}
-            style={[styles.container, props.showSubtitle && {height: 64}, (props.showSubtitle && item.subtitle) && {paddingTop: 2}, props.listItemStyle]}
-          >
-            { props.customListItem ? props.customListItem(item)
-              :
-              <View style={{flex: 1, flexDirection: "row", alignItems: 'center'}}>
-                { (props.showLeftCheckIcon && !props.showCheckIcon && !props.showRadioStyle) && renderLeftCheckIcon(item)}
-                <View style={{flex: 1}}>
-                  <TextHighlight textToHighlight={item.label} searchWords={[props.searchedText]} numberOfLines={1}
-                    textStyle={[{ color: itemColor(item, 'black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}
-                  />
+  return (
+    <React.Fragment>
+      <TouchableOpacity
+        onPress={() => props.onSelectItem()}
+        style={[styles.container, props.showSubtitle && {height: 64}, (props.showSubtitle && item.subtitle) && {paddingTop: 2}, props.listItemStyle]}
+      >
+        { props.customListItem ? props.customListItem(item)
+          :
+          <View style={{flex: 1, flexDirection: "row", alignItems: 'center'}}>
+            { (props.showLeftCheckIcon && !props.showCheckIcon && !props.showRadioStyle) && renderLeftCheckIcon()}
+            <View style={{flex: 1}}>
+              <TextHighlight textToHighlight={item.label} searchWords={[props.searchedText]} numberOfLines={1}
+                textStyle={[{ color: itemColor('black'), fontSize: LIST_ITEM_FONT_SIZE }, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.itemTextStyle]}
+              />
 
-                  {(props.showSubtitle && item.subtitle) && <Text numberOfLines={1} style={[styles.subtitle, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.subtitleStyle]}>{item.subtitle}</Text> }
-                </View>
-              </View>
-            }
-            {!props.hideListItemAudio ? renderAudioBtn(item.audio, item.uuid) : renderRightIcon(item)}
-          </TouchableOpacity>
-          <View style={{ borderColor: '#D3D3D3', borderBottomWidth: index == props.items.length - 1 ? 0 : 0.7 }} />
-        </React.Fragment>
-      )
-    })
-  }
-
-  return renderListItem();
+              {(props.showSubtitle && item.subtitle) && <Text numberOfLines={1} style={[styles.subtitle, props.itemFontFamily && {fontFamily: props.itemFontFamily}, props.subtitleStyle]}>{item.subtitle}</Text> }
+            </View>
+          </View>
+        }
+        {!props.hideListItemAudio ? renderAudioBtn() : renderRightIcon()}
+      </TouchableOpacity>
+      <View style={{ borderColor: '#D3D3D3', borderBottomWidth: props.index == props.items.length - 1 ? 0 : 0.7 }} />
+    </React.Fragment>
+  )
 }
 
 const styles = StyleSheet.create({
