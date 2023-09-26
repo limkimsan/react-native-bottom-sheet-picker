@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { View, TouchableWithoutFeedback, Keyboard, Pressable, Text } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { BottomSheetFlatList } from '@gorhom/bottom-sheet';
 
 import DashedLineComponent from './DashedLineComponent';
 import BottomSheetPickerListItemComponent from './BottomSheetPickerListItemComponent';
@@ -29,15 +29,14 @@ const BottomSheetPickerListComponent = (props) => {
     props.onSelectItem(pickerHelper.getSelectedValue(props.selectedFieldName, item));
   }
 
-  const renderList = () => {
-    return (
-      <ScrollView contentContainerStyle={[{flexGrow: 1, padding: 16, paddingTop: 0, paddingBottom: 20}, props.scrollViewStyle]}>
-        <Pressable>
-          <BottomSheetPickerListItemComponent
+  const renderListItem = (item, index) => {
+    return <BottomSheetPickerListItemComponent
+            index={index}
             items={props.items.filter(item => item.label.includes(searchedText))}
+            item={item}
             searchedText={searchedText}
             selectedItem={selectedItem}
-            onSelectItem={(item) => onSelectItem(item)}
+            onSelectItem={() => onSelectItem(item)}
             showConfirmDelete={props.showConfirmDelete}
             isDeletable={props.isDeletable}
             defaultSelectedItem={props.selectedItem}
@@ -59,9 +58,17 @@ const BottomSheetPickerListComponent = (props) => {
             showSubtitle={props.showSubtitle}
             subtitleStyle={props.subtitleStyle}
           />
-        </Pressable>
-      </ScrollView>
-    )
+  }
+
+  const renderList = () => {
+    return <BottomSheetFlatList
+              contentContainerStyle={[{flexGrow: 1, padding: 16, paddingTop: 0, paddingBottom: 20}, props.scrollViewStyle]}
+              data={props.items.filter(item => item.label.includes(searchedText))}
+              keyExtractor={(option, index) => index.toString()}
+              renderItem={({ item, index }) => (
+                renderListItem(item, index)
+              )}
+            />
   }
 
   return (
@@ -70,6 +77,7 @@ const BottomSheetPickerListComponent = (props) => {
         { !!props.customBottomSheetTitle ? props.customBottomSheetTitle : renderTitle() }
         { props.isSearchable &&
           <SearchBoxComponent placeholder={props.searchPlaceholder} itemTextStyle={props.itemTextStyle} searchInputStyle={props.searchInputStyle}
+            searchInputContainerStyle={props.searchInputContainerStyle} searchIconColor={props.searchIconColor} clearSearchIconColor={props.clearSearchIconColor}
             onSearchChange={(text) => setSearchedText(text)}
           />
         }

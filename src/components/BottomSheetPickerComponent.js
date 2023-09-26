@@ -50,6 +50,9 @@ const BottomSheetPickerComponent = (props) => {
                         isSearchable={props.isSearchable}
                         searchPlaceholder={props.searchPlaceholder}
                         searchInputStyle={props.searchInputStyle}
+                        searchInputContainerStyle={props.searchInputContainerStyle}
+                        searchIconColor={props.searchIconColor}
+                        clearSearchIconColor={props.clearSearchIconColor}
                       />
 
     pickerRef.current?.setBodyContent(content);
