@@ -77,6 +77,7 @@ const BottomSheetPickerListComponent = (props) => {
         { !!props.customBottomSheetTitle ? props.customBottomSheetTitle : renderTitle() }
         { props.isSearchable &&
           <SearchBoxComponent placeholder={props.searchPlaceholder} itemTextStyle={props.itemTextStyle} searchInputStyle={props.searchInputStyle}
+            searchInputContainerStyle={props.searchInputContainerStyle} searchIconColor={props.searchIconColor} clearSearchIconColor={props.clearSearchIconColor}
             onSearchChange={(text) => setSearchedText(text)}
           />
         }
