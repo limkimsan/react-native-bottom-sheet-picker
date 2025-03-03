@@ -21,6 +21,7 @@ const BottomSheetModalComponent = (props, ref) => {
       snapPoints={props.snapPoints}
       onDismiss={() => !!props.onDismiss && props.onDismiss()}
       onChange={(index) => !!props.onChange && props.onChange(index)}
+      enableDynamicSizing={props.enableDynamicSizing}
     >
       { props.content }
     </BottomSheetModal>
