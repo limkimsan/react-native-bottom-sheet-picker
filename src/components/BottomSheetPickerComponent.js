@@ -104,7 +104,12 @@ const BottomSheetPickerComponent = (props) => {
         </TouchableOpacity>
       </View>
 
-      <FormBottomSheetModalComponent ref={pickerRef} formModalRef={pickerModalRef} snapPoints={props.snapPoints || ['60%']} onDismissModal={() => onDismissModal()} />
+      <FormBottomSheetModalComponent ref={pickerRef}
+        formModalRef={pickerModalRef}
+        snapPoints={props.snapPoints || ['60%']}
+        enableDynamicSizing={props.enableDynamicSizing || false}
+        onDismissModal={() => onDismissModal()}
+      />
     </View>
   )
 }
